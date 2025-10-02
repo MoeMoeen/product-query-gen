@@ -112,7 +112,7 @@ async def generate_queries_for_single_product(product: ProductIn) -> List[QueryO
     # If self-check is enabled, run a second-pass selection/repair
     if settings.llm_self_check:
         try:
-            first_json = json.dumps({"queries": [q.dict() for q in deduped]}, separators=(",", ":"))
+            first_json = json.dumps({"queries": [q.model_dump() for q in deduped]}, separators=(",", ":"))
             refine_prompt = prompts.self_check_prompt(_product_to_prompt_dict(product), first_json)
             resp2 = await client.chat.completions.create(
                 model=settings.openai_model,
