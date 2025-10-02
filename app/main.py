@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.config import settings
 from app.schemas import ProductsIn, GeneratedQueriesBatchOut
-from app.services.generator import generate_queries_for_batch
+from app.services.query_generator import generate_queries_for_batch
 
 app = FastAPI(
     title=settings.project_name,

@@ -7,6 +7,9 @@
 **Product Query Generator** is a FastAPI-based service that generates **synthetic human-like search queries** for e-commerce products.  
 The queries simulate real customer search behavior (short keywords + natural language phrases) and can be used to **evaluate and improve search engine relevance**.  
 
+REMEMBER: the whole purpose of the service we are developing is to generate human like user queries that if asked from our search service, the correct answer by the search service would be the input product.
+
+
 Queries can be **precomputed and cached** in a database, with **on-demand generation as fallback** for unseen products.
 
 ---

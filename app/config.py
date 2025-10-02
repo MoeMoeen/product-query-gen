@@ -20,12 +20,17 @@ class Settings(BaseModel):
 
     # LLM
     openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
-    openai_model: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    # Support both OPENAI_MODEL and MODEL_NAME for convenience
+    openai_model: str = os.getenv("OPENAI_MODEL", os.getenv("MODEL_NAME", "gpt-4o-mini"))
     openai_temperature: float = float(os.getenv("OPENAI_TEMPERATURE", "0.7"))
     openai_max_tokens: int = int(os.getenv("OPENAI_MAX_TOKENS", "400"))
 
     # Logging
     log_level: str = os.getenv("LOG_LEVEL", "INFO")
+
+    # Concurrency and quality controls
+    concurrency_limit: int = int(os.getenv("CONCURRENCY_LIMIT", "1"))
+    llm_self_check: bool = os.getenv("LLM_SELF_CHECK", "0").lower() in {"1", "true", "yes"}
 
 settings = Settings()
 
