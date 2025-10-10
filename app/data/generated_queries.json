@@ -1,0 +1,102 @@
+[
+  {
+    "id": "15575762698621",
+    "title": "Ribbed wool and cashmere-blend cardigan",
+    "description": "Allude's cardigan is made from a sumptuous blend of wool and cashmere and has chunky ribbed finish and wide collar that add to its cozy feel. Wear yours when the weather starts to cool, adjusting the zippered front as needed. Lower-Impact Materials. This product is made using at least 50% lower-impact materials or ingredients. Find out more about our NET SUSTAIN criteria here. Details & Care - Camel wool and cashmere-blend - Zip fastening through front - 70% virgin wool, 30% cashmere - Hand wash Size & Fit",
+    "price": 515.0,
+    "material": null,
+    "size": "x small (XS),small (S),medium (M),large (L),x large (XL)",
+    "rating": null,
+    "product_type": "Clothing > Knitwear > Cardigans",
+    "vendor": "ALLUDE",
+    "tags": [
+      "Done by GO",
+      "FW25 RTW",
+      "Lower Impact Materials",
+      "Solid Color",
+      "Wool"
+    ],
+    "queries": [
+      {
+        "text": "ribbed wool cashmere cardigan",
+        "style": "short",
+        "bucket": "material"
+      },
+      {
+        "text": "Allude cashmere cardigan for women",
+        "style": "short",
+        "bucket": "brand"
+      },
+      {
+        "text": "cozy zip-front cardigan in camel color",
+        "style": "short",
+        "bucket": "fit"
+      },
+      {
+        "text": "Do you have a ribbed cardigan made of wool and cashmere around $520?",
+        "style": "natural",
+        "bucket": "price"
+      },
+      {
+        "text": "I'm looking for a warm cardigan that I can wear when the weather cools down.",
+        "style": "natural",
+        "bucket": "occasion"
+      },
+      {
+        "text": "Can you show me cardigans with a chunky ribbed finish in size small?",
+        "style": "natural",
+        "bucket": "fit"
+      }
+    ]
+  },
+  {
+    "id": "15575762633085",
+    "title": "One-shoulder wool and cashmere-blend sweater",
+    "description": "Allude's collections put an elegant spin on knitwear. This one-shoulder sweater is made from wool blended with cashmere for softness. Style yours for evening with a bold cuff. Lower-Impact Materials. This product is made using at least 50% lower-impact materials or ingredients. Find out more about our NET SUSTAIN criteria here. Details & Care - Brown wool and cashmere-blend - Slips on - 70% wool, 30% cashmere Size & Fit - Fits true to size, take your normal size - Designed for a slim fit - Dropped shoulder",
+    "price": 195.0,
+    "material": null,
+    "size": "x small (XS),small (S),medium (M),large (L),x large (XL)",
+    "rating": null,
+    "product_type": "Clothing > Knitwear > Round Neck",
+    "vendor": "ALLUDE",
+    "tags": [
+      "Done by GO",
+      "FW25 Accessories",
+      "Lower Impact Materials",
+      "Solid Color",
+      "Wool"
+    ],
+    "queries": [
+      {
+        "text": "brown cashmere sweater",
+        "style": "short",
+        "bucket": "material"
+      },
+      {
+        "text": "one-shoulder wool sweater",
+        "style": "short",
+        "bucket": "material"
+      },
+      {
+        "text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?",
+        "style": "natural",
+        "bucket": "material"
+      },
+      {
+        "text": "I'm looking for a slim-fit cashmere-blend sweater under $220.",
+        "style": "natural",
+        "bucket": "price"
+      },
+      {
+        "text": "ALLUDE brown wool sweater",
+        "style": "short",
+        "bucket": "brand"
+      },
+      {
+        "text": "Do you have a one-shoulder sweater that is soft and stylish for an evening out?",
+        "style": "natural",
+        "bucket": "occasion"
+      }
+    ]
+  }
+]

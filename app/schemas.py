@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 class ProductIn(BaseModel):
     id: str
@@ -9,6 +9,10 @@ class ProductIn(BaseModel):
     material: Optional[str] = None
     size: Optional[str] = None
     rating: Optional[float] = None
+    # Optional context fields to enrich prompting
+    product_type: Optional[str] = None
+    vendor: Optional[str] = None
+    tags: Optional[List[str]] = None
 
 class ProductsIn(BaseModel):
     products: List[ProductIn]
@@ -25,3 +29,8 @@ class GeneratedQueriesOut(BaseModel):
 
 class GeneratedQueriesBatchOut(BaseModel):
     results: List[GeneratedQueriesOut]
+
+
+class ShopifyProductsIn(BaseModel):
+    """Accepts raw Shopify-like product objects (dicts)."""
+    products: List[Dict[str, Any]]

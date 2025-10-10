@@ -1,5 +1,5 @@
 #app/services/generator.py
-"""Service to generate search queries for products using OpenAI."""
+"""Service to generate search queries for input products using OpenAI."""
 
 from typing import List, Dict, Any
 import json
@@ -20,6 +20,9 @@ def _product_to_prompt_dict(product: ProductIn) -> Dict[str, Any]:
         "material": product.material,
         "size": product.size,
         "rating": product.rating,
+        "vendor": getattr(product, "vendor", None),
+        "product_type": getattr(product, "product_type", None),
+        "tags": getattr(product, "tags", None),
     }
 
 

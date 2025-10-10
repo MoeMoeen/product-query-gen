@@ -51,6 +51,15 @@ def user_prompt_for_product(product: Dict[str, Any], per_bucket: int = 2) -> str
 		parts.append(f"size: {product['size']}")
 	if product.get("rating") is not None:
 		parts.append(f"rating: {product['rating']}")
+	if product.get("vendor"):
+		parts.append(f"vendor: {product['vendor']}")
+	if product.get("product_type"):
+		parts.append(f"product_type: {product['product_type']}")
+	if product.get("tags"):
+		if isinstance(product["tags"], (list, set, tuple)):
+			parts.append(f"tags: {', '.join(product['tags'])}")
+		else:
+			parts.append(f"tags: {product['tags']}")
 
 	product_block = "\n".join(parts)
 
@@ -105,7 +114,9 @@ def user_prompt_for_product(product: Dict[str, Any], per_bucket: int = 2) -> str
 		"Critical requirement: Each query must be written so that THIS product would be the correct or best match if a search engine were used. "
 		"Do not generate generic advice or information-seeking questions (e.g., 'what is the best...', 'best occasions...').\n"
 		f"Buckets to consider: {buckets_str}. If a field is present, include at least one query for that bucket (e.g., price→price, material→material).\n"
-		"Spread queries across available buckets. Cover at least min(available, 4) distinct buckets. Limit each bucket to ≤2 queries.\n\n"
+		"Spread queries across available buckets. Cover at least min(available, 4) distinct buckets. Limit each bucket to ≤2 queries.\n"
+		"If vendor is present, include at least one query in the 'brand' bucket that references the vendor by name.\n"
+		"Material inference rule: Only include material if it is explicitly supported by the product description, tags, or product_type; do not invent or guess material.\n\n"
 		"Compliance checklist (apply silently before output):\n"
 		"- Each natural query contains a pronoun (I/you/my/your/we) or ends with '?'.\n"
 		"- Each natural query includes at least one auxiliary/modal verb (is/are/am/do/can/could/would).\n"
@@ -156,6 +167,8 @@ def self_check_prompt(product: Dict[str, Any], first_pass_json_minified: str) ->
 		"Goal: SELECT 6–10 queries that satisfy ALL of the following before returning JSON:\n"
 		"- Discriminative: each query should retrieve THIS product.\n"
 		"- Bucket diversity: cover ≥4 distinct buckets when available; cap each bucket at ≤2 queries.\n"
+		"- Brand coverage: if vendor is present, include ≥1 'brand' bucket query referencing the vendor by name.\n"
+		"- Material discipline: only include material if supported by description/tags/product_type; do not invent or guess.\n"
 		"- Natural richness: include ≥1 natural query between 16–24 words combining at least two attributes (e.g., size + material, price + occasion).\n"
 		"- Price normalization: if price is present, keep budget phrasing within ±10% and prefer provided budget hints if any.\n"
 		"- Style rules: short queries are ≤5 tokens, no punctuation, avoid stopwords; natural queries are full sentences or questions.\n\n"
