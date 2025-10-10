@@ -21,7 +21,7 @@ class ProductsIn(BaseModel):
 class QueryOut(BaseModel):
     text: str
     style: str   # "short" | "natural"
-    bucket: str  # e.g. "price", "occasion"
+    bucket: str  # e.g. "price", "occasion", "material", "brand", etc.
 
 class GeneratedQueriesOut(BaseModel):
     product_id: str

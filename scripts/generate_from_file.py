@@ -52,6 +52,7 @@ def print_preview(products: List[ProductIn], results):
         if p.tags:
             print("tags:", ", ".join(p.tags))
         print("queries:", len(r.queries))
+
         for q in r.queries[:10]:
             print(f"- {q.style} -- {q.bucket} -- {q.text}")
 
