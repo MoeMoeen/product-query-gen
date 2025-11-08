@@ -6,7 +6,11 @@ No semantic or title-based matching.
 from __future__ import annotations
 
 from typing import List
+import logging
 from app.schemas_eval import CandidateRef, ProductRef
+
+
+logger = logging.getLogger("evaluator.resolve")
 
 
 async def resolve_candidates(candidates: List[CandidateRef], ground_truth: List[ProductRef]):
@@ -20,16 +24,21 @@ async def resolve_candidates(candidates: List[CandidateRef], ground_truth: List[
     # Title normalization removed in simplified mode (no title matching)
 
     resolved: List[CandidateRef] = []
+    c_id = c_sku = c_url = 0
 
     for c in candidates:
         # Direct by product_id
         if c.product_id:
             c.resolved_product_id = c.product_id
+            c_id += 1
         # Fallback direct by SKU
         elif c.sku and c.sku in gt_by_sku:
             c.resolved_product_id = gt_by_sku[c.sku].product_id
+            c_sku += 1
         # Fallback direct by URL
         elif c.url and c.url in gt_by_url:
             c.resolved_product_id = gt_by_url[c.url].product_id
+            c_url += 1
         resolved.append(c)
+    logger.info("resolve: %d by id, %d by sku, %d by url; total candidates=%d", c_id, c_sku, c_url, len(candidates))
     return resolved

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict
 
 
 class Attrs(BaseModel):
@@ -41,7 +41,6 @@ class EvaluationRequest(BaseModel):
     ground_truth_products: List[ProductRef]
     chatbot_answer: ChatbotAnswer
     catalog_context: Optional[CatalogContext] = None
-    top_k: int = 3
 
 
 class CandidateRef(ProductRef):
@@ -62,5 +61,4 @@ class EvaluationResult(BaseModel):
     labels: List[str]
     matched: bool
     details: Dict[str, List[MatchDetail]]
-    metrics: Dict[str, Any]
     explanations: List[str]

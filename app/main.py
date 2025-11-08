@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.config import settings
+from app.config import settings, setup_logging
 from app.schemas import ProductsIn, GeneratedQueriesBatchOut, ShopifyProductsIn
 from app.services.query_generator import generate_queries_for_batch
 from app.services.product_adapter import map_shopify_products
@@ -9,6 +9,8 @@ from app.schemas_eval import (
     EvaluationResult,
 )
 from app.services.evaluator import evaluate_one
+
+setup_logging()
 
 app = FastAPI(
     title=settings.project_name,

@@ -6,8 +6,12 @@ Variant, semantic, and composite scoring removed per rollback to M2 scope.
 from __future__ import annotations
 
 from typing import List
+import logging
 from app.schemas_eval import CandidateRef, ProductRef, MatchDetail
 
+
+
+logger = logging.getLogger("evaluator.score")
 
 
 async def score_candidates(candidates: List[CandidateRef], ground_truth: List[ProductRef]) -> List[MatchDetail]:
@@ -19,6 +23,7 @@ async def score_candidates(candidates: List[CandidateRef], ground_truth: List[Pr
     """
     gt_ids = {p.product_id for p in ground_truth if p.product_id}
     details: List[MatchDetail] = []
+    n_exact = 0
     for c in candidates:
         label = "wrong"
         score = 0.0
@@ -27,5 +32,7 @@ async def score_candidates(candidates: List[CandidateRef], ground_truth: List[Pr
             label = "exact_match"
             score = 1.0
             reasons.append("exact id match")
+            n_exact += 1
         details.append(MatchDetail(candidate=c, label=label, score=score, reasons=reasons))
+    logger.info("score: %d exact_match, %d wrong", n_exact, len(details) - n_exact)
     return details

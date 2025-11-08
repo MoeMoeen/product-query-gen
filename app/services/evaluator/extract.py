@@ -135,8 +135,11 @@ async def extract_candidates(answer: ChatbotAnswer, query: QueryContext) -> List
                     source="structured",
                 )
             )
+        logger.info("extraction: structured products passthrough -> %d candidates", len(candidates))
     # Unstructured path via LLM extractor
     if not candidates and answer.raw_text:
+        logger.info("extraction: unstructured path, calling LLM (query len=%d, text len=%d)",
+                    len(query.query_text or ""), len(answer.raw_text or ""))
         try:
             raw = await _call_llm_extractor(answer.raw_text, query.query_text)
         except Exception as e:
@@ -157,5 +160,6 @@ async def extract_candidates(answer: ChatbotAnswer, query: QueryContext) -> List
 
         llm_candidates = _parse_candidates_from_json(payload)
         candidates.extend(llm_candidates)
+        logger.info("extraction: LLM produced %d candidates", len(llm_candidates))
 
     return candidates

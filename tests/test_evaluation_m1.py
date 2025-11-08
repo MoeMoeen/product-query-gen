@@ -63,7 +63,5 @@ async def test_wrong_label_and_metrics():
     result = await evaluate_one(req)
     assert result.matched is False
     assert "wrong" in result.labels
-    # Metrics removed in simplified mode
 
 
-# Batch evaluation removed in simplified mode
