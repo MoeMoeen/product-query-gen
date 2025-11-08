@@ -32,6 +32,10 @@ class Settings(BaseModel):
     concurrency_limit: int = int(os.getenv("CONCURRENCY_LIMIT", "1"))
     llm_self_check: bool = os.getenv("LLM_SELF_CHECK", "0").lower() in {"1", "true", "yes"}
 
+    # Evaluation (current simplified scope)
+    eval_temperature: float = float(os.getenv("EVAL_TEMPERATURE", "0.2"))
+    max_candidates: int = int(os.getenv("MAX_CANDIDATES", "10"))
+
 settings = Settings()
 
 
