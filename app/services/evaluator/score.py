@@ -15,24 +15,13 @@ logger = logging.getLogger("evaluator.score")
 
 
 async def score_candidates(candidates: List[CandidateRef], ground_truth: List[ProductRef]) -> List[MatchDetail]:
-    """Assign labels and scores to candidates based on ground-truth.
-
-    M0 logic:
-    - exact_match if candidate.resolved_product_id matches any ground_truth.product_id
-    - else wrong (score 0.0)
-    """
     gt_ids = {p.product_id for p in ground_truth if p.product_id}
-    details: List[MatchDetail] = []
-    n_exact = 0
-    for c in candidates:
-        label = "wrong"
-        score = 0.0
-        reasons: List[str] = []
-        if c.resolved_product_id and c.resolved_product_id in gt_ids:
-            label = "exact_match"
-            score = 1.0
-            reasons.append("exact id match")
-            n_exact += 1
-        details.append(MatchDetail(candidate=c, label=label, score=score, reasons=reasons))
-    logger.info("score: %d exact_match, %d wrong", n_exact, len(details) - n_exact)
-    return details
+    out: List[MatchDetail] = []
+    logger.info("score: evaluating %d candidates against %d gt ids", len(candidates), len(gt_ids))
+
+    for i, c in enumerate(candidates):
+        label = "exact_match" if (c.resolved_product_id and c.resolved_product_id in gt_ids) else "wrong"
+        logger.debug("score: [%d] resolved_id=%s -> label=%s", i, c.resolved_product_id, label)
+        out.append(MatchDetail(candidate=c, label=label, score=0.0, reasons=[]))
+
+    return out

@@ -115,51 +115,61 @@ def _parse_candidates_from_json(payload: Dict[str, Any]) -> List[CandidateRef]:
     return out
 
 
-async def extract_candidates(answer: ChatbotAnswer, query: QueryContext) -> List[CandidateRef]:
+async def extract_candidates(chatbot_answer: ChatbotAnswer, query: QueryContext) -> List[CandidateRef]:
     """Return candidate products extracted from the chatbot answer.
 
     For M0: If structured products exist, wrap them; else return empty list (LLM later).
     """
-    candidates: List[CandidateRef] = []
-    if answer.products:
-        for p in answer.products:
-            norm_title = p.title.strip() if p.title else None
-            candidates.append(
-                CandidateRef(
-                    product_id=p.product_id,
-                    parent_id=p.parent_id,
-                    title=norm_title,
-                    url=p.url,
-                    sku=p.sku,
-                    attrs=p.attrs,
-                    source="structured",
-                )
-            )
-        logger.info("extraction: structured products passthrough -> %d candidates", len(candidates))
-    # Unstructured path via LLM extractor
-    if not candidates and answer.raw_text:
-        logger.info("extraction: unstructured path, calling LLM (query len=%d, text len=%d)",
-                    len(query.query_text or ""), len(answer.raw_text or ""))
-        try:
-            raw = await _call_llm_extractor(answer.raw_text, query.query_text)
-        except Exception as e:
-            logger.warning("LLM extractor failed: %s", e)
-            return candidates  # empty
+    # Structured path
+    if chatbot_answer.products:
+        logger.info("extract: structured path with %d products", len(chatbot_answer.products))
+        out: List[CandidateRef] = []
+        for i, p in enumerate(chatbot_answer.products):
+            logger.debug("extract: structured item %d -> id=%s sku=%s url=%s title=%r",
+                         i, getattr(p, "product_id", None), getattr(p, "sku", None),
+                         getattr(p, "url", None), getattr(p, "title", None))
+            out.append(CandidateRef(**p.model_dump(), source="structured"))
+        logger.info("extract: structured produced %d candidates", len(out))
+        return out
 
-        json_str = raw
-        # If not valid JSON, try brace-extract
-        try:
-            payload = json.loads(json_str)
-        except Exception:
-            block = _extract_json_block(raw) or "{}"
+    # Unstructured path
+    raw = (chatbot_answer.raw_text or "").strip()
+    logger.info("extract: unstructured path, raw_text_len=%d, query_id=%s", len(raw), getattr(query, "query_id", None))
+    if not raw:
+        logger.warning("extract: empty raw_text; returning no candidates")
+        return []
+
+    try:
+        llm_raw = await _call_llm_extractor(raw, query.query_text, hints=None)
+        logger.debug("extract: llm raw json (truncated 500): %s", str(llm_raw)[:500])
+
+        # llm_raw is expected to be a JSON string; try to extract a top-level JSON block
+        payload_str = None
+        if isinstance(llm_raw, str):
+            payload_str = _extract_json_block(llm_raw) or llm_raw
+        else:
+            # If the llm client returns a dict-like object already, convert to string/json
             try:
-                payload = json.loads(block)
+                payload_str = json.dumps(llm_raw)
             except Exception:
-                logger.warning("Failed to parse LLM JSON output; returning no candidates")
-                return candidates
+                payload_str = None
 
-        llm_candidates = _parse_candidates_from_json(payload)
-        candidates.extend(llm_candidates)
-        logger.info("extraction: LLM produced %d candidates", len(llm_candidates))
+        if not payload_str:
+            logger.warning("extract: LLM extractor returned no payload; returning no candidates")
+            return []
 
-    return candidates
+        try:
+            payload = json.loads(payload_str)
+        except Exception as exc:
+            logger.exception("extract: failed to parse LLM JSON payload: %s", exc)
+            return []
+
+        candidates = _parse_candidates_from_json(payload)
+        logger.info("extract: unstructured produced %d candidates", len(candidates))
+        for i, c in enumerate(candidates):
+            logger.debug("extract: unstructured item %d -> id=%s sku=%s url=%s title=%r conf=%s",
+                         i, c.product_id, c.sku, c.url, c.title, getattr(c, "llm_extraction_confidence", None))
+        return candidates
+    except Exception as e:
+        logger.exception("extract: LLM extraction failed: %s", e)
+        return []
