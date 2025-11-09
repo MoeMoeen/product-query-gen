@@ -1,31 +1,31 @@
 {
   "meta": {
-    "timestamp": "2025-11-09 12:04:08,135",
+    "timestamp": "2025-11-09 19:28:28,934",
     "products_count": 2
   },
   "summary": {
-    "total": 16,
-    "passed": 16,
+    "total": 64,
+    "passed": 64,
     "failed": 0,
     "by_group": {
       "structured_correct": {
-        "total": 4,
-        "passed": 4,
+        "total": 16,
+        "passed": 16,
         "failed": 0
       },
       "structured_incorrect": {
-        "total": 4,
-        "passed": 4,
+        "total": 16,
+        "passed": 16,
         "failed": 0
       },
       "unstructured_correct": {
-        "total": 4,
-        "passed": 4,
+        "total": 16,
+        "passed": 16,
         "failed": 0
       },
       "unstructured_incorrect": {
-        "total": 4,
-        "passed": 4,
+        "total": 16,
+        "passed": 16,
         "failed": 0
       }
     }
@@ -43,8 +43,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -80,8 +107,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -105,6 +159,650 @@
       }
     },
     {
+      "name": "15575762698621 | structured_correct[2]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 2,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 1,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_zzz",
+                "parent_id": null,
+                "title": "Random accessory",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_zzz"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Cardigan exact",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-2",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_zzz",
+              "title": "Random accessory"
+            },
+            {
+              "product_id": "15575762698621",
+              "title": "Cardigan exact"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_correct[3]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 3,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 2,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "A cozy camel cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_123",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_123"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-3",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "A cozy camel cardigan"
+            },
+            {
+              "product_id": "15575762698621",
+              "title": "Ribbed wool and cashmere-blend cardigan"
+            },
+            {
+              "product_id": "p_fake_123"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_correct[4]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 4,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 2,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_200",
+                "parent_id": null,
+                "title": "Cotton crewneck",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_200"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_201",
+                "parent_id": null,
+                "title": "Merino v-neck",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_201"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Allude ribbed wool cashmere cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-4",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_200",
+              "title": "Cotton crewneck"
+            },
+            {
+              "product_id": "p_fake_201",
+              "title": "Merino v-neck"
+            },
+            {
+              "product_id": "15575762698621",
+              "title": "Allude ribbed wool cashmere cardigan"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_correct[5]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 5,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 1,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Ribbed knit in camel, size S",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-5",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Ribbed knit in camel, size S"
+            },
+            {
+              "product_id": "15575762698621"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_correct[6]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 6,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 2,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_202",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_202"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_203",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_203"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-6",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_202"
+            },
+            {
+              "product_id": "p_fake_203"
+            },
+            {
+              "product_id": "15575762698621"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_correct[7]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_correct",
+      "index": 7,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match",
+          "wrong"
+        ],
+        "details_counts": {
+          "exact_match": 1,
+          "wrong": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_204",
+                "parent_id": null,
+                "title": "Camel scarf",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_204"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_correct-7",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "15575762698621",
+              "title": "Ribbed wool and cashmere-blend cardigan"
+            },
+            {
+              "product_id": "p_fake_204",
+              "title": "Camel scarf"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "15575762698621 | structured_incorrect[0]",
       "product_id": "15575762698621",
       "product_title": "Ribbed wool and cashmere-blend cardigan",
@@ -116,8 +814,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Some cozy knit cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -152,8 +877,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_001",
+                "parent_id": null,
+                "title": "Ribbed wool cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_001"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -178,6 +930,519 @@
       }
     },
     {
+      "name": "15575762698621 | structured_incorrect[2]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 2,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_002",
+                "parent_id": null,
+                "title": "Chunky ribbed cape",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_002"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Cashmere wrap",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-2",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_002",
+              "title": "Chunky ribbed cape"
+            },
+            {
+              "title": "Cashmere wrap"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_incorrect[3]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 3,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_wrong_98621",
+                "parent_id": null,
+                "title": "Ribbed cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_wrong_98621"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-3",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_wrong_98621",
+              "title": "Ribbed cashmere-blend cardigan"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_incorrect[4]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 4,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_300",
+                "parent_id": null,
+                "title": "Camel cardigan dupe",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_300"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_301",
+                "parent_id": null,
+                "title": "Cashmere shrug",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_301"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-4",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_300",
+              "title": "Camel cardigan dupe"
+            },
+            {
+              "product_id": "p_fake_301",
+              "title": "Cashmere shrug"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_incorrect[5]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 5,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Zip-front cardigan under $520",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Wool-blend wrap",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-5",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Zip-front cardigan under $520"
+            },
+            {
+              "title": "Wool-blend wrap"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_incorrect[6]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 6,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 3
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_302",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_302"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_303",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_303"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_304",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_304"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-6",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_302"
+            },
+            {
+              "product_id": "p_fake_303"
+            },
+            {
+              "product_id": "p_fake_304"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | structured_incorrect[7]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "structured_incorrect",
+      "index": 7,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_305",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan (similar)",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_305"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-structured_incorrect-7",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_305",
+              "title": "Ribbed wool and cashmere-blend cardigan (similar)"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "15575762698621 | unstructured_correct[0]",
       "product_id": "15575762698621",
       "product_title": "Ribbed wool and cashmere-blend cardigan",
@@ -189,8 +1454,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 1.0,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -221,8 +1513,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "ribbed cardigan made of wool and cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -242,6 +1561,387 @@
       }
     },
     {
+      "name": "15575762698621 | unstructured_correct[2]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 2,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "ribbed cardigan made of wool and cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-2",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Link shared earlier points to the item page; product URL includes id=15575762698621. Also looked at scarf p_fake_001 but ignoring that."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_correct[3]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 3,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-3",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Comparing options: 'Cardigan in camel' (p_fake_010) vs the exact 'Ribbed wool and cashmere-blend cardigan'. Final pick id: 15575762698621."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_correct[4]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 4,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "Allude cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-4",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Shortlist contained p_fake_200 and p_fake_201; the chosen Allude cardigan has product_id=15575762698621."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_correct[5]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 5,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match",
+          "wrong"
+        ],
+        "details_counts": {
+          "exact_match": 1,
+          "wrong": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "ribbed zip-front cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_204",
+                "parent_id": null,
+                "title": "scarf",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.5,
+                "resolved_product_id": "p_fake_204"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-5",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Here are two camel knits we discussed: 15575762698621 (the ribbed zip-front) and p_fake_204 (a scarf). Proceed with 15575762698621."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_correct[6]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 6,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "ribbed cardigan",
+                "url": "https://shop.example.com/p?category=knitwear&product_id=15575762698621#details",
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": 520.0,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-6",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Direct link: https://shop.example.com/p?category=knitwear&product_id=15575762698621#details"
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_correct[7]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_correct",
+      "index": 7,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762698621",
+                "parent_id": null,
+                "title": "ribbed cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": 520.0,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762698621"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_correct-7",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Options in cart: p_fake_202, 15575762698621, p_fake_203. Finalizing the second one."
+        }
+      }
+    },
+    {
       "name": "15575762698621 | unstructured_incorrect[0]",
       "product_id": "15575762698621",
       "product_title": "Ribbed wool and cashmere-blend cardigan",
@@ -253,8 +1953,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_001",
+                "parent_id": null,
+                "title": "Alpaca scarf",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "p_fake_001"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -285,8 +2012,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "ribbed cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "camel"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.8,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -306,6 +2060,330 @@
       }
     },
     {
+      "name": "15575762698621 | unstructured_incorrect[2]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 2,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": 520.0,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.8,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-2",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "You might like this cardigan under $520; no specific product ID available."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_incorrect[3]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 3,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_001",
+                "parent_id": null,
+                "title": "Ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "p_fake_001"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-3",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "The item referenced earlier is p_fake_001; style is similar to 'Ribbed wool and cashmere-blend cardigan'."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_incorrect[4]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 4,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_300",
+                "parent_id": null,
+                "title": "Allude cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "p_fake_300"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-4",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Considering IDs p_fake_300 and p_fake_301; none match the exact Allude cardigan."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_incorrect[5]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 5,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "ribbed cardigan",
+                "url": "https://shop.example.com/c/knitwear/camel-ribbed",
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": 520.0,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-5",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Shared a link without identifiers: https://shop.example.com/c/knitwear/camel-ribbed"
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_incorrect[6]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 6,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [],
+        "details_counts": {},
+        "details_full": {}
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-6",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Discussed three items (p_fake_302, p_fake_303, p_fake_304) but not the requested cardigan."
+        }
+      }
+    },
+    {
+      "name": "15575762698621 | unstructured_incorrect[7]",
+      "product_id": "15575762698621",
+      "product_title": "Ribbed wool and cashmere-blend cardigan",
+      "group": "unstructured_incorrect",
+      "index": 7,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "ribbed wool and cashmere-blend cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762698621-unstructured_incorrect-7",
+          "query_text": "Do you have a ribbed cardigan made of wool and cashmere around $520?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762698621",
+            "title": "Ribbed wool and cashmere-blend cardigan"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Referring to a 'ribbed wool and cashmere-blend cardigan' generically, but I don't have its product id."
+        }
+      }
+    },
+    {
       "name": "15575762633085 | structured_correct[0]",
       "product_id": "15575762633085",
       "product_title": "One-shoulder wool and cashmere-blend sweater",
@@ -317,8 +2395,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "One-shoulder wool and cashmere-blend sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -354,8 +2459,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -379,6 +2511,620 @@
       }
     },
     {
+      "name": "15575762633085 | structured_correct[2]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 2,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 1,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_111",
+                "parent_id": null,
+                "title": "Silk blouse",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_111"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "One-shoulder wool and cashmere-blend sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-2",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_111",
+              "title": "Silk blouse"
+            },
+            {
+              "product_id": "15575762633085",
+              "title": "One-shoulder wool and cashmere-blend sweater"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_correct[3]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 3,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 1,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Brown slim-fit knit",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-3",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Brown slim-fit knit"
+            },
+            {
+              "product_id": "15575762633085"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_correct[4]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 4,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 1,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_401",
+                "parent_id": null,
+                "title": "Cashmere turtleneck",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_401"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "ALLUDE one-shoulder wool & cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-4",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_401",
+              "title": "Cashmere turtleneck"
+            },
+            {
+              "product_id": "15575762633085",
+              "title": "ALLUDE one-shoulder wool & cashmere"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_correct[5]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 5,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 2,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Evening slim-fit one-shoulder",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_402",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_402"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-5",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Evening slim-fit one-shoulder"
+            },
+            {
+              "product_id": "p_fake_402"
+            },
+            {
+              "product_id": "15575762633085"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_correct[6]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 6,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match",
+          "wrong"
+        ],
+        "details_counts": {
+          "exact_match": 1,
+          "wrong": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_403",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_403"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-6",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "15575762633085"
+            },
+            {
+              "product_id": "p_fake_403"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_correct[7]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_correct",
+      "index": 7,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "wrong",
+          "exact_match"
+        ],
+        "details_counts": {
+          "wrong": 2,
+          "exact_match": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_404",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_404"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_405",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_405"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ],
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_correct-7",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_404"
+            },
+            {
+              "product_id": "p_fake_405"
+            },
+            {
+              "product_id": "15575762633085"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "15575762633085 | structured_incorrect[0]",
       "product_id": "15575762633085",
       "product_title": "One-shoulder wool and cashmere-blend sweater",
@@ -390,8 +3136,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Brown knit top",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -426,8 +3199,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_002",
+                "parent_id": null,
+                "title": "One-shoulder cashmere sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_002"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -452,6 +3252,517 @@
       }
     },
     {
+      "name": "15575762633085 | structured_incorrect[2]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 2,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_003",
+                "parent_id": null,
+                "title": "Round-neck cashmere sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_003"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_004",
+                "parent_id": null,
+                "title": "Camel ribbed cardigan",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_004"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-2",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_003",
+              "title": "Round-neck cashmere sweater"
+            },
+            {
+              "product_id": "p_fake_004",
+              "title": "Camel ribbed cardigan"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_incorrect[3]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 3,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Slim-fit wool top",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-3",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Slim-fit wool top"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_incorrect[4]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 4,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_500",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_500"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_501",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_501"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-4",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_500"
+            },
+            {
+              "product_id": "p_fake_501"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_incorrect[5]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 5,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Brown one-shoulder sweater (similar)",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "Soft knit for evening",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-5",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "title": "Brown one-shoulder sweater (similar)"
+            },
+            {
+              "title": "Soft knit for evening"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_incorrect[6]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 6,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 3
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_502",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_502"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_503",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_503"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": "p_fake_504",
+                "parent_id": null,
+                "title": null,
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_504"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-6",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_502"
+            },
+            {
+              "product_id": "p_fake_503"
+            },
+            {
+              "product_id": "p_fake_504"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | structured_incorrect[7]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "structured_incorrect",
+      "index": 7,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_505",
+                "parent_id": null,
+                "title": "Wool & cashmere blend pullover",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "structured",
+                "llm_extraction_confidence": null,
+                "resolved_product_id": "p_fake_505"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-structured_incorrect-7",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "products": [
+            {
+              "product_id": "p_fake_505",
+              "title": "Wool & cashmere blend pullover"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "15575762633085 | unstructured_correct[0]",
       "product_id": "15575762633085",
       "product_title": "One-shoulder wool and cashmere-blend sweater",
@@ -463,8 +3774,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "brown one-shoulder sweater made of wool and cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 1.0,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -495,8 +3833,35 @@
         "labels": [
           "exact_match"
         ],
-        "details": {
+        "details_counts": {
           "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "one-shoulder wool and cashmere-blend sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -516,6 +3881,360 @@
       }
     },
     {
+      "name": "15575762633085 | unstructured_correct[2]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 2,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "one-shoulder wool and cashmere-blend sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 1.0,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-2",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Shortlist: p_fake_002 blouse vs 'one-shoulder wool and cashmere-blend sweater'. Confirmed product id=15575762633085 for checkout."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_correct[3]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 3,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "brown one-shoulder sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 1.0,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-3",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "That brown one-shoulder sweater you asked about — final selection has id 15575762633085; ships tomorrow."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_correct[4]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 4,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "brown one-shoulder sweater made of wool and cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-4",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Two items considered for the event: p_fake_401 and 15575762633085. Go with 15575762633085."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_correct[5]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 5,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "one-shoulder sweater",
+                "url": "https://shop.example.com/products/one-shoulder?product_id=15575762633085&utm=ref",
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-5",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Direct PDP: https://shop.example.com/products/one-shoulder?product_id=15575762633085&utm=ref"
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_correct[6]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 6,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "brown one-shoulder sweater made of wool and cashmere",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.9,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-6",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Cart contained: p_fake_404, 15575762633085, p_fake_405 — we kept the second."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_correct[7]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_correct",
+      "index": 7,
+      "expect": true,
+      "result": {
+        "matched": true,
+        "labels": [
+          "exact_match"
+        ],
+        "details_counts": {
+          "exact_match": 1
+        },
+        "details_full": {
+          "exact_match": [
+            {
+              "candidate": {
+                "product_id": "15575762633085",
+                "parent_id": null,
+                "title": "brown one-shoulder sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 1.0,
+                "resolved_product_id": "15575762633085"
+              },
+              "label": "exact_match",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_correct-7",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "If you need to reference it later, the internal id is 15575762633085 (ALLUDE one-shoulder)."
+        }
+      }
+    },
+    {
       "name": "15575762633085 | unstructured_incorrect[0]",
       "product_id": "15575762633085",
       "product_title": "One-shoulder wool and cashmere-blend sweater",
@@ -527,8 +4246,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_002",
+                "parent_id": null,
+                "title": "silk blouse",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": "p_fake_002"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -559,8 +4305,35 @@
         "labels": [
           "wrong"
         ],
-        "details": {
+        "details_counts": {
           "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "slim-fit sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
         }
       },
       "request": {
@@ -576,6 +4349,383 @@
         ],
         "chatbot_answer": {
           "raw_text": "We have slim-fit sweaters under $220 in stock now."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[2]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 2,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "camel knits",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-2",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Can't find the exact one-shoulder piece; showing similar camel knits without IDs."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[3]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 3,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": "p_fake_004",
+                "parent_id": null,
+                "title": "one-shoulder sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.8,
+                "resolved_product_id": "p_fake_004"
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-3",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "The only ID I can retrieve is p_fake_004; titles mention 'one-shoulder' but not this exact model."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[4]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 4,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 2
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "p_fake_500",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            },
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "p_fake_501",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": null,
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": null
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-4",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Earlier we discussed p_fake_500 and p_fake_501; neither matches the requested ALLUDE piece."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[5]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 5,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "one-shoulder sweater",
+                "url": "https://shop.example.com/c/sweaters/one-shoulder",
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.8,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-5",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Link previewed is generic: https://shop.example.com/c/sweaters/one-shoulder"
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[6]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 6,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "ALLUDE sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.0,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-6",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Comparing p_fake_502, p_fake_503, p_fake_504 — no exact id provided for the ALLUDE sweater."
+        }
+      }
+    },
+    {
+      "name": "15575762633085 | unstructured_incorrect[7]",
+      "product_id": "15575762633085",
+      "product_title": "One-shoulder wool and cashmere-blend sweater",
+      "group": "unstructured_incorrect",
+      "index": 7,
+      "expect": false,
+      "result": {
+        "matched": false,
+        "labels": [
+          "wrong"
+        ],
+        "details_counts": {
+          "wrong": 1
+        },
+        "details_full": {
+          "wrong": [
+            {
+              "candidate": {
+                "product_id": null,
+                "parent_id": null,
+                "title": "one-shoulder wool and cashmere sweater",
+                "url": null,
+                "sku": null,
+                "attrs": {
+                  "brand": null,
+                  "material": "wool and cashmere",
+                  "size": null,
+                  "price": null,
+                  "rating": null,
+                  "color": "brown"
+                },
+                "source": "llm_extractor",
+                "llm_extraction_confidence": 0.8,
+                "resolved_product_id": null
+              },
+              "label": "wrong",
+              "score": 0.0,
+              "reasons": []
+            }
+          ]
+        }
+      },
+      "request": {
+        "query": {
+          "query_id": "15575762633085-unstructured_incorrect-7",
+          "query_text": "Can you show me a brown one-shoulder sweater made of wool and cashmere?"
+        },
+        "ground_truth_products": [
+          {
+            "product_id": "15575762633085",
+            "title": "One-shoulder wool and cashmere-blend sweater"
+          }
+        ],
+        "chatbot_answer": {
+          "raw_text": "Refers to 'one-shoulder wool and cashmere' but doesn't include an ID or URL that identifies it."
         }
       }
     }

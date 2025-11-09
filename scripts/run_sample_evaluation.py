@@ -151,14 +151,17 @@ async def main():
             data = resp.json()
             matched = data.get("matched", False)
             labels = data.get("labels", [])
-            details = {k: len(v) for k, v in data.get("details", {}).items()}
+            # Keep a compact count view for console and summary
+            details_counts = {k: len(v) for k, v in data.get("details", {}).items()}
+            # Preserve the full candidate/match detail objects in the report
+            details_full = data.get("details", {})
 
             verdict = "PASS" if matched == expect else "FAIL"
             if verdict == "PASS":
                 ok += 1
 
             print(
-                f"[{verdict}] {name} -> matched={matched} expect={expect} labels={labels} details={details}"
+                f"[{verdict}] {name} -> matched={matched} expect={expect} labels={labels} details={details_counts}"
             )
 
             # Update report
@@ -181,7 +184,8 @@ async def main():
                 "result": {
                     "matched": matched,
                     "labels": labels,
-                    "details": details,
+                    "details_counts": details_counts,
+                    "details_full": details_full,
                 },
                 "request": {
                     "query": payload.get("query"),

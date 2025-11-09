@@ -27,19 +27,82 @@
     "chatbot_responses": {
       "structured_correct": [
         {"products": [{"product_id": "15575762698621", "title": "Ribbed wool and cashmere-blend cardigan"}]},
-        {"products": [{"product_id": "15575762698621"}]}
+        {"products": [{"product_id": "15575762698621"}]},
+        {"products": [
+          {"product_id": "p_fake_zzz", "title": "Random accessory"},
+          {"product_id": "15575762698621", "title": "Cardigan exact"}
+        ]},
+        {"products": [
+          {"title": "A cozy camel cardigan"},
+          {"product_id": "15575762698621", "title": "Ribbed wool and cashmere-blend cardigan"},
+          {"product_id": "p_fake_123"}
+        ]}
+        ,
+        {"products": [
+          {"product_id": "p_fake_200", "title": "Cotton crewneck"},
+          {"product_id": "p_fake_201", "title": "Merino v-neck"},
+          {"product_id": "15575762698621", "title": "Allude ribbed wool cashmere cardigan"}
+        ]},
+        {"products": [
+          {"title": "Ribbed knit in camel, size S"},
+          {"product_id": "15575762698621"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_202"},
+          {"product_id": "p_fake_203"},
+          {"product_id": "15575762698621"}
+        ]},
+        {"products": [
+          {"product_id": "15575762698621", "title": "Ribbed wool and cashmere-blend cardigan"},
+          {"product_id": "p_fake_204", "title": "Camel scarf"}
+        ]}
       ],
       "structured_incorrect": [
         {"products": [{"title": "Some cozy knit cardigan"}]},
-        {"products": [{"product_id": "p_fake_001", "title": "Ribbed wool cardigan"}]}
+        {"products": [{"product_id": "p_fake_001", "title": "Ribbed wool cardigan"}]},
+        {"products": [
+          {"product_id": "p_fake_002", "title": "Chunky ribbed cape"},
+          {"title": "Cashmere wrap"}
+        ]},
+        {"products": [
+          {"product_id": "p_wrong_98621", "title": "Ribbed cashmere-blend cardigan"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_300", "title": "Camel cardigan dupe"},
+          {"product_id": "p_fake_301", "title": "Cashmere shrug"}
+        ]},
+        {"products": [
+          {"title": "Zip-front cardigan under $520"},
+          {"title": "Wool-blend wrap"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_302"},
+          {"product_id": "p_fake_303"},
+          {"product_id": "p_fake_304"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_305", "title": "Ribbed wool and cashmere-blend cardigan (similar)"}
+        ]}
       ],
       "unstructured_correct": [
         {"raw_text": "Exact match found: 'Ribbed wool and cashmere-blend cardigan' (id: 15575762698621)."},
-        {"raw_text": "For tracking, the product id is 15575762698621 and it ships this week."}
+        {"raw_text": "For tracking, the product id is 15575762698621 and it ships this week."},
+        {"raw_text": "Link shared earlier points to the item page; product URL includes id=15575762698621. Also looked at scarf p_fake_001 but ignoring that."},
+        {"raw_text": "Comparing options: 'Cardigan in camel' (p_fake_010) vs the exact 'Ribbed wool and cashmere-blend cardigan'. Final pick id: 15575762698621."},
+        {"raw_text": "Shortlist contained p_fake_200 and p_fake_201; the chosen Allude cardigan has product_id=15575762698621."},
+        {"raw_text": "Here are two camel knits we discussed: 15575762698621 (the ribbed zip-front) and p_fake_204 (a scarf). Proceed with 15575762698621."},
+        {"raw_text": "Direct link: https://shop.example.com/p?category=knitwear&product_id=15575762698621#details"},
+        {"raw_text": "Options in cart: p_fake_202, 15575762698621, p_fake_203. Finalizing the second one."}
       ],
       "unstructured_incorrect": [
         {"raw_text": "Customers also liked 'Alpaca scarf' (product id p_fake_001)."},
-        {"raw_text": "We have many ribbed cardigans in camel; browse the collection."}
+        {"raw_text": "We have many ribbed cardigans in camel; browse the collection."},
+        {"raw_text": "You might like this cardigan under $520; no specific product ID available."},
+        {"raw_text": "The item referenced earlier is p_fake_001; style is similar to 'Ribbed wool and cashmere-blend cardigan'."},
+        {"raw_text": "Considering IDs p_fake_300 and p_fake_301; none match the exact Allude cardigan."},
+        {"raw_text": "Shared a link without identifiers: https://shop.example.com/c/knitwear/camel-ribbed"},
+        {"raw_text": "Discussed three items (p_fake_302, p_fake_303, p_fake_304) but not the requested cardigan."},
+        {"raw_text": "Referring to a 'ribbed wool and cashmere-blend cardigan' generically, but I don't have its product id."}
       ]
     }
   },
@@ -71,19 +134,80 @@
     "chatbot_responses": {
       "structured_correct": [
         {"products": [{"product_id": "15575762633085", "title": "One-shoulder wool and cashmere-blend sweater"}]},
-        {"products": [{"product_id": "15575762633085"}]}
+        {"products": [{"product_id": "15575762633085"}]},
+        {"products": [
+          {"product_id": "p_fake_111", "title": "Silk blouse"},
+          {"product_id": "15575762633085", "title": "One-shoulder wool and cashmere-blend sweater"}
+        ]},
+        {"products": [
+          {"title": "Brown slim-fit knit"},
+          {"product_id": "15575762633085"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_401", "title": "Cashmere turtleneck"},
+          {"product_id": "15575762633085", "title": "ALLUDE one-shoulder wool & cashmere"}
+        ]},
+        {"products": [
+          {"title": "Evening slim-fit one-shoulder"},
+          {"product_id": "p_fake_402"},
+          {"product_id": "15575762633085"}
+        ]},
+        {"products": [
+          {"product_id": "15575762633085"},
+          {"product_id": "p_fake_403"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_404"},
+          {"product_id": "p_fake_405"},
+          {"product_id": "15575762633085"}
+        ]}
       ],
       "structured_incorrect": [
         {"products": [{"title": "Brown knit top"}]},
-        {"products": [{"product_id": "p_fake_002", "title": "One-shoulder cashmere sweater"}]}
+        {"products": [{"product_id": "p_fake_002", "title": "One-shoulder cashmere sweater"}]},
+        {"products": [
+          {"product_id": "p_fake_003", "title": "Round-neck cashmere sweater"},
+          {"product_id": "p_fake_004", "title": "Camel ribbed cardigan"}
+        ]},
+        {"products": [
+          {"title": "Slim-fit wool top"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_500"},
+          {"product_id": "p_fake_501"}
+        ]},
+        {"products": [
+          {"title": "Brown one-shoulder sweater (similar)"},
+          {"title": "Soft knit for evening"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_502"},
+          {"product_id": "p_fake_503"},
+          {"product_id": "p_fake_504"}
+        ]},
+        {"products": [
+          {"product_id": "p_fake_505", "title": "Wool & cashmere blend pullover"}
+        ]}
       ],
       "unstructured_correct": [
         {"raw_text": "Recommending the exact match for evening wear (id: 15575762633085)."},
-        {"raw_text": "The one-shoulder wool and cashmere-blend sweater is available; product id 15575762633085."}
+        {"raw_text": "The one-shoulder wool and cashmere-blend sweater is available; product id 15575762633085."},
+        {"raw_text": "Shortlist: p_fake_002 blouse vs 'one-shoulder wool and cashmere-blend sweater'. Confirmed product id=15575762633085 for checkout."},
+        {"raw_text": "That brown one-shoulder sweater you asked about — final selection has id 15575762633085; ships tomorrow."},
+        {"raw_text": "Two items considered for the event: p_fake_401 and 15575762633085. Go with 15575762633085."},
+        {"raw_text": "Direct PDP: https://shop.example.com/products/one-shoulder?product_id=15575762633085&utm=ref"},
+        {"raw_text": "Cart contained: p_fake_404, 15575762633085, p_fake_405 — we kept the second."},
+        {"raw_text": "If you need to reference it later, the internal id is 15575762633085 (ALLUDE one-shoulder)."}
       ],
       "unstructured_incorrect": [
         {"raw_text": "Consider a silk blouse, product id p_fake_002, for an elegant look."},
-        {"raw_text": "We have slim-fit sweaters under $220 in stock now."}
+        {"raw_text": "We have slim-fit sweaters under $220 in stock now."},
+        {"raw_text": "Can't find the exact one-shoulder piece; showing similar camel knits without IDs."},
+        {"raw_text": "The only ID I can retrieve is p_fake_004; titles mention 'one-shoulder' but not this exact model."},
+        {"raw_text": "Earlier we discussed p_fake_500 and p_fake_501; neither matches the requested ALLUDE piece."},
+        {"raw_text": "Link previewed is generic: https://shop.example.com/c/sweaters/one-shoulder"},
+        {"raw_text": "Comparing p_fake_502, p_fake_503, p_fake_504 — no exact id provided for the ALLUDE sweater."},
+        {"raw_text": "Refers to 'one-shoulder wool and cashmere' but doesn't include an ID or URL that identifies it."}
       ]
     }
   }
