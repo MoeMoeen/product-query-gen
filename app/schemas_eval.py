@@ -51,7 +51,7 @@ class CandidateRef(ProductRef):
 
 class MatchDetail(BaseModel):
     candidate: CandidateRef
-    label: str  # exact_match|variant_match|close_match|wrong|empty
+    label: str # exact_match|wrong
     score: float
     reasons: List[str]
 

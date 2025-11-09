@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import logging
 from typing import List, Optional, Dict, Any
+import re
 from app.schemas_eval import ChatbotAnswer, CandidateRef, QueryContext, Attrs
 from app.config import get_openai_async_client, settings
 from app.prompts_eval import extraction_system_prompt, extraction_user_prompt
@@ -67,6 +68,7 @@ def _extract_json_block(text: str) -> Optional[str]:
 
 
 def _coerce_float(val: Any, default: float = 0.0) -> float:
+    """Coerce arbitrary input into a float in [0.0, 1.0]; else return default."""
     try:
         f = float(val)
         if f < 0.0:
@@ -76,6 +78,53 @@ def _coerce_float(val: Any, default: float = 0.0) -> float:
         return f
     except Exception:
         return default
+
+
+def _coerce_optional_float(val: Any) -> Optional[float]:
+    """Coerce arbitrary input into a float when possible; else None.
+    Handles strings like "$520" or "around 520" by extracting the first number.
+    """
+    if val is None:
+        return None
+    if isinstance(val, (int, float)):
+        return float(val)
+    if isinstance(val, str):
+        s = val.replace(",", " ")
+        m = re.search(r"[-+]?(?:\d+\.?\d*|\d*\.?\d+)", s)
+        if m:
+            try:
+                return float(m.group(0))
+            except Exception:
+                return None
+    try:
+        return float(val)
+    except Exception:
+        return None
+
+
+def _safe_build_attrs(attrs_obj: Dict[str, Any]) -> Attrs:
+    """Build Attrs model defensively: drop/convert invalid fields instead of raising.
+    - price/rating: best-effort float parsing from strings or numbers
+    - other fields: coerce to string if not None
+    """
+    allowed = getattr(Attrs, "model_fields", {})
+    data: Dict[str, Any] = {}
+    for k in allowed:
+        if k not in attrs_obj:
+            continue
+        v = attrs_obj[k]
+        if k in ("price", "rating"):
+            data[k] = _coerce_optional_float(v)
+        else:
+            if v is None or isinstance(v, str):
+                data[k] = v
+            else:
+                data[k] = str(v)
+    try:
+        return Attrs(**data)
+    except Exception as e:
+        logger.debug("extract: invalid attrs payload dropped; err=%s", e)
+        return Attrs()
 
 
 def _parse_candidates_from_json(payload: Dict[str, Any]) -> List[CandidateRef]:
@@ -95,7 +144,7 @@ def _parse_candidates_from_json(payload: Dict[str, Any]) -> List[CandidateRef]:
             continue
         confidence = _coerce_float(item.get("confidence"), 0.0)
         # Map attrs dict into Attrs model safely
-        attrs = Attrs(**{k: v for k, v in attrs_obj.items() if k in Attrs.model_fields})  # type: ignore[attr-defined]
+        attrs = _safe_build_attrs(attrs_obj)
         candidate = CandidateRef(
             product_id=product_id,
             parent_id=parent_id,
@@ -116,9 +165,12 @@ def _parse_candidates_from_json(payload: Dict[str, Any]) -> List[CandidateRef]:
 
 
 async def extract_candidates(chatbot_answer: ChatbotAnswer, query: QueryContext) -> List[CandidateRef]:
-    """Return candidate products extracted from the chatbot answer.
-
-    For M0: If structured products exist, wrap them; else return empty list (LLM later).
+    """
+    Return candidate products extracted from the chatbot answer.
+    Two paths:
+    1) Structured: if chatbot_answer.products is non-empty, wrap them as CandidateRefs with source="structured".
+    2) Unstructured: if chatbot_answer.raw_text is non-empty, call LLM extractor to parse JSON and extract candidates.
+    3) If neither path yields candidates, return an empty list.
     """
     # Structured path
     if chatbot_answer.products:
@@ -147,6 +199,7 @@ async def extract_candidates(chatbot_answer: ChatbotAnswer, query: QueryContext)
         payload_str = None
         if isinstance(llm_raw, str):
             payload_str = _extract_json_block(llm_raw) or llm_raw
+            logger.debug("extract: llm payload as json string (truncated 500): %s", str(payload_str)[:500])
         else:
             # If the llm client returns a dict-like object already, convert to string/json
             try:

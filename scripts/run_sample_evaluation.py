@@ -1,9 +1,11 @@
 """Run a few sample evaluation requests against the live evaluator pipeline.
 
 Requirements:
-  - OPENAI_API_KEY set (for unstructured LLM extraction case)
+    - OPENAI_API_KEY set (for unstructured LLM extraction case)
 Run:
-  uv run python scripts/run_sample_evaluation.py
+    uv run python scripts/run_sample_evaluation.py
+Produces:
+    - app/data/sample_evaluation_report.json (overwritten each run)
 """
 from __future__ import annotations
 
@@ -14,9 +16,22 @@ from pathlib import Path
 from typing import Dict, Any, List
 
 from httpx import AsyncClient, ASGITransport
-from app.main import app
 
-DATA_PATH = Path(__file__).resolve().parents[1] / "app" / "data" / "generated_queries.json"
+# Try importing the FastAPI app; if running as a raw script without PYTHONPATH,
+# add the project root to sys.path and retry. This avoids permanent path hacks.
+try:
+    from app.main import app  # type: ignore
+except ModuleNotFoundError:
+    import sys as _sys
+    from pathlib import Path as _Path
+    _root = _Path(__file__).resolve().parents[1]
+    if str(_root) not in _sys.path:
+        _sys.path.insert(0, str(_root))
+    from app.main import app  # type: ignore
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_PATH = ROOT / "app" / "data" / "sample_chatbot_responses.json"
+REPORT_PATH = ROOT / "app" / "data" / "sample_evaluation_report.json"
 
 
 def setup_logging():
@@ -45,77 +60,68 @@ def pick_query(product: Dict[str, Any], style: str = "natural") -> str:
 
 
 def build_requests_for_product(prod: Dict[str, Any]) -> List[Dict[str, Any]]:
-    pid = str(prod["id"])
-    title = prod["title"]
+    pid = str(prod["id"]) if "id" in prod else ""
+    title = prod.get("title", "")
     user_query = pick_query(prod, style="natural")  # richer query
 
     gt = [{"product_id": pid, "title": title}]  # ground-truth list
 
-    # 1) Correct structured: contains product_id
-    req_structured_correct = dict(
-        name=f"{pid} | structured_correct",
-        payload={
-            "query": {"query_id": f"{pid}-sc", "query_text": user_query},
-            "ground_truth_products": gt,
-            "chatbot_answer": {
-                "products": [{"product_id": pid, "title": title}]
-            },
-        },
-        expect=True,
-    )
-
-    # 2) Wrong structured: structured, but missing product_id
-    req_structured_wrong = dict(
-        name=f"{pid} | structured_wrong",
-        payload={
-            "query": {"query_id": f"{pid}-sw", "query_text": user_query},
-            "ground_truth_products": gt,
-            "chatbot_answer": {
-                "products": [{"title": "Some cozy knit cardigan"}]
-            },
-        },
-        expect=False,
-    )
-
-    # 3) Correct unstructured: mentions product id explicitly (LLM should extract it)
-    req_unstructured_correct = dict(
-        name=f"{pid} | unstructured_correct",
-        payload={
-            "query": {"query_id": f"{pid}-uc", "query_text": user_query},
-            "ground_truth_products": gt,
-            "chatbot_answer": {
-                "raw_text": (
-                    f"Great choice! Recommending the exact match: '{title}'. "
-                    f"For precise tracking, note the product id {pid}. "
-                    "It’s in stock and ships this week."
-                )
-            },
-        },
-        expect=True,
-    )
-
-    # 4) Wrong unstructured: talks about something else, with a different id
-    req_unstructured_wrong = dict(
-        name=f"{pid} | unstructured_wrong",
-        payload={
-            "query": {"query_id": f"{pid}-uw", "query_text": user_query},
-            "ground_truth_products": gt,
-            "chatbot_answer": {
-                "raw_text": (
-                    "Based on your request, here’s a different recommendation: "
-                    "Cozy Alpaca Scarf, product id p_fake_001. Customers love it."
-                )
-            },
-        },
-        expect=False,
-    )
-
-    return [
-        req_structured_correct,
-        req_structured_wrong,
-        req_unstructured_correct,
-        req_unstructured_wrong,
+    requests: List[Dict[str, Any]] = []
+    responses = prod.get("chatbot_responses", {})
+    groups = [
+        ("structured_correct", True),
+        ("structured_incorrect", False),
+        ("unstructured_correct", True),
+        ("unstructured_incorrect", False),
     ]
+
+    for group_name, expect in groups:
+        for idx, answer in enumerate(responses.get(group_name, [])):
+            requests.append(
+                dict(
+                    name=f"{pid} | {group_name}[{idx}]",
+                    product_id=pid,
+                    product_title=title,
+                    group=group_name,
+                    index=idx,
+                    payload={
+                        "query": {"query_id": f"{pid}-{group_name}-{idx}", "query_text": user_query},
+                        "ground_truth_products": gt,
+                        "chatbot_answer": answer,
+                    },
+                    expect=expect,
+                )
+            )
+    return requests
+
+
+def build_report_skeleton(products_count: int) -> Dict[str, Any]:
+    return {
+        "meta": {
+            "timestamp": logging.Formatter.formatTime(logging.Formatter(), record=logging.LogRecord(
+                name="", level=0, pathname="", lineno=0, msg="", args=(), exc_info=None
+            )),
+            "products_count": products_count,
+        },
+        "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "by_group": {
+                "structured_correct": {"total": 0, "passed": 0, "failed": 0},
+                "structured_incorrect": {"total": 0, "passed": 0, "failed": 0},
+                "unstructured_correct": {"total": 0, "passed": 0, "failed": 0},
+                "unstructured_incorrect": {"total": 0, "passed": 0, "failed": 0},
+            },
+        },
+        "scenarios": [],
+    }
+
+
+def write_report(report: Dict[str, Any]) -> None:
+    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(REPORT_PATH, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
 
 
 async def main():
@@ -129,11 +135,16 @@ async def main():
 
         print(f"Running {len(all_reqs)} scenarios across {len(products)} products...\n")
 
+        report = build_report_skeleton(products_count=len(products))
         ok = 0
         for r in all_reqs:
             name = r["name"]
             payload = r["payload"]
             expect = r["expect"]
+            group = r["group"]
+            product_id = r["product_id"]
+            product_title = r["product_title"]
+            idx = r["index"]
 
             resp = await client.post("/evaluate/answer", json=payload)
             resp.raise_for_status()
@@ -150,7 +161,40 @@ async def main():
                 f"[{verdict}] {name} -> matched={matched} expect={expect} labels={labels} details={details}"
             )
 
+            # Update report
+            report["summary"]["total"] += 1
+            report["summary"]["by_group"][group]["total"] += 1
+            if verdict == "PASS":
+                report["summary"]["passed"] += 1
+                report["summary"]["by_group"][group]["passed"] += 1
+            else:
+                report["summary"]["failed"] += 1
+                report["summary"]["by_group"][group]["failed"] += 1
+
+            scenario_entry = {
+                "name": name,
+                "product_id": product_id,
+                "product_title": product_title,
+                "group": group,
+                "index": idx,
+                "expect": expect,
+                "result": {
+                    "matched": matched,
+                    "labels": labels,
+                    "details": details,
+                },
+                "request": {
+                    "query": payload.get("query"),
+                    "ground_truth_products": payload.get("ground_truth_products"),
+                    "chatbot_answer": payload.get("chatbot_answer"),
+                },
+            }
+            report["scenarios"].append(scenario_entry)
+
+        # Persist report (overwrite each run)
+        write_report(report)
         print(f"\nSummary: {ok}/{len(all_reqs)} scenarios passed")
+        print(f"Report written to: {REPORT_PATH}")
 
 
 if __name__ == "__main__":
